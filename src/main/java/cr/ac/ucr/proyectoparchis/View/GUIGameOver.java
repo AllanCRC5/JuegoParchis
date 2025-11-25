@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
  *
  * @author Allan
  */
-public class GUIGameOver extends javax.swing.JFrame {
+public class GUIGameOver extends javax.swing.JFrame 
+    {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIGameOver.class.getName());
 

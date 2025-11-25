@@ -45,14 +45,25 @@ public class GUIPlay extends javax.swing.JFrame
         this.playController = playController;// se usa para crear una misma instancia en diferentes clases
     }//fin metodo 
     
-    public void setIbmPuntaje(String puntos) 
+    public void setIbmPuntajeP1(String puntos) 
     {
-        this.ibmPuntaje.setText(puntos+" puntos");
+        this.ibmPuntajeP1.setText(puntos+" puntos");
+    }//fin metodo
+    
+    public void setIbmPuntaje2(String puntos)
+    {
+        this.ibmPuntaje2.setText(puntos+" puntos");
     }//fin metodo
     
     public void setIbmTiempo(String tiempo) 
     {
         this.ibmTiempo.setText(tiempo+" segundos");
+    }//fin metodo
+    
+    @Override
+    public void repaint() 
+    {
+        jblPanel.repaint();
     }//fin metodo
 
     
@@ -71,11 +82,13 @@ public class GUIPlay extends javax.swing.JFrame
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ibmPuntaje = new javax.swing.JLabel();
+        ibmPuntajeP1 = new javax.swing.JLabel();
         ibmTiempo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        panelBoard1 = new cr.ac.ucr.proyectoparchis.View.panelBoard();
         jLabel1 = new javax.swing.JLabel();
+        ibmPuntaje2 = new javax.swing.JLabel();
+        jblFondo = new javax.swing.JLabel();
+        panelBoard1 = new cr.ac.ucr.proyectoparchis.View.panelBoard();
+        jblPanel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,23 +103,33 @@ public class GUIPlay extends javax.swing.JFrame
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Puntaje");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 80, -1));
+        jLabel3.setText("Puntaje Jugador 1");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 140, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tiempo");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 70, -1));
 
-        ibmPuntaje.setBackground(new java.awt.Color(204, 204, 204));
-        ibmPuntaje.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        getContentPane().add(ibmPuntaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 100, 20));
+        ibmPuntajeP1.setBackground(new java.awt.Color(204, 204, 204));
+        ibmPuntajeP1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        ibmPuntajeP1.setOpaque(true);
+        getContentPane().add(ibmPuntajeP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 130, 20));
         getContentPane().add(ibmTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 90, 20));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 204));
-        jLabel2.setForeground(new java.awt.Color(255, 204, 204));
-        jLabel2.setOpaque(true);
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 250, 590));
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Puntaje jugador 2");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 150, -1));
+
+        ibmPuntaje2.setBackground(new java.awt.Color(204, 204, 204));
+        ibmPuntaje2.setOpaque(true);
+        getContentPane().add(ibmPuntaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 130, 20));
+
+        jblFondo.setBackground(new java.awt.Color(255, 255, 204));
+        jblFondo.setForeground(new java.awt.Color(255, 204, 204));
+        jblFondo.setOpaque(true);
+        getContentPane().add(jblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 250, 590));
 
         panelBoard1.setOpaque(false);
 
@@ -123,8 +146,8 @@ public class GUIPlay extends javax.swing.JFrame
 
         getContentPane().add(panelBoard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 590));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tablero 6.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
+        jblPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tablero 6.png"))); // NOI18N
+        getContentPane().add(jblPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,12 +157,14 @@ public class GUIPlay extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDado;
-    private javax.swing.JLabel ibmPuntaje;
+    private javax.swing.JLabel ibmPuntaje2;
+    private javax.swing.JLabel ibmPuntajeP1;
     private javax.swing.JLabel ibmTiempo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jblFondo;
+    private javax.swing.JLabel jblPanel;
     private cr.ac.ucr.proyectoparchis.View.panelBoard panelBoard1;
     // End of variables declaration//GEN-END:variables
 }

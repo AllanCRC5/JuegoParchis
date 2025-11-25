@@ -5,7 +5,6 @@ cr\ac\ucr\proyectoparchis\View\GUIChooseColor.class
 cr\ac\ucr\proyectoparchis\View\GUIGameOver.class
 cr\ac\ucr\proyectoparchis\View\GUIPlay.class
 cr\ac\ucr\proyectoparchis\Model\Questions.class
-cr\ac\ucr\proyectoparchis\Model\Stadistics.class
 cr\ac\ucr\proyectoparchis\Controller\PlayController.class
 cr\ac\ucr\proyectoparchis\Model\Position.class
 cr\ac\ucr\proyectoparchis\View\GUIStartGame.class

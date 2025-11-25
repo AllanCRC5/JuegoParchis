@@ -73,17 +73,18 @@ public class Player // clase que controla al jugador
 
     public void setScore(int score)
     {
-        this.score = score;
+        this.score += score;
     }
+    
     
     public void sumarScore() 
     {
-        this.score +=1;
+        this.score++;
     }//fin metodo
     
     public void restarScore() 
     {
-        this.score -= 1;
+        this.score--;
     }//fiin metodo
     
     public void sumarEspecial() 

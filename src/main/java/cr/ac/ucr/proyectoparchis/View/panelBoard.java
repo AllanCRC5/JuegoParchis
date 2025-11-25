@@ -27,6 +27,7 @@ public class panelBoard extends javax.swing.JPanel
     {
         this.playController = playController;
     }
+    
     public void setController(PlayController playController) 
     {
        this.playController = playController;// se usa para crear una misma instancia en diferentes clases

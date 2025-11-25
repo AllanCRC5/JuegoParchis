@@ -62,7 +62,6 @@ public class Piece // esta clase representa los objetos piezas
     
     public void draw(Component c, Graphics g) // metodo utilizado para pintar la pieza y que se vea en los paneles 
     {
-        System.out.println("Entro al draw del objeto pieza");
         image.paintIcon(c, g, position.getX(), position.getY());
     }//fin metodo draw
 }//fin clase

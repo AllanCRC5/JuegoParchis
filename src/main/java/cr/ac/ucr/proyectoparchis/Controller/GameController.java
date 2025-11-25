@@ -35,6 +35,7 @@ public class GameController implements ActionListener
     GUIChooseColor gUIChooseColor;
     GUIHistory gUIHistory;
     GUICredits gUICredits;
+    
     PlayController playController;// se crea una referencia del otro controlador, en donde esta creado el objeto Play Menu, para que se pueda abrir desde aqui
     Player player;
     GUIWin guiWin;

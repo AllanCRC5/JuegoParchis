@@ -25,17 +25,20 @@ public class Board// clase encargada de controlar lo que se muestra en el tabler
     private String color;
     
     private Position position[]; // arreglo tipo objeto Position
-
+    
+    int numDadoR, numDadoY, numDadoG, numDadoB;
     
     
     public Board(String color) // constructor que recibe por parametro el color escogido por el usuario
     {
         this.color = color;// crea variable color y la incializa con variable color por parametro
+        numDadoR = 38;
+        numDadoG = 55;
+        numDadoY = 4;
+        numDadoB = 21; 
         
         square = new Square[68]; // arreglo creado con 68 espacios, coincidiendo con las celdas
         position = new Position[68]; // arreglo creado para las posiciones
-        
-        System.out.println("Entro al constructor de board, el color seleccionado es"+this.color);
         
         if (this.color.equalsIgnoreCase("rojo")) 
         {
@@ -49,7 +52,6 @@ public class Board// clase encargada de controlar lo que se muestra en el tabler
         {
             if (this.color.equalsIgnoreCase("amarillo"))
             {
-                System.out.println("Entro al if del amarillo");
                 this.homeYellow = new Home("amarillo");
                 this.homeBlue = new Home("azul");
                 startYelllow();
@@ -60,7 +62,7 @@ public class Board// clase encargada de controlar lo que se muestra en el tabler
                 if (this.color.equalsIgnoreCase("verde")) 
                 {
                     this.homeGreen = new Home("verde");
-                    this.homeYellow = new Home("yellow");
+                    this.homeYellow = new Home("amarillo");
                     startGreen();
                     startYelllow();
                 }//fin if anidado 2
@@ -305,47 +307,76 @@ public class Board// clase encargada de controlar lo que se muestra en el tabler
     }//fin metodo draw 
     
     
-    public void moverFichas(int i, String color)// para mover la ficha, segun el numero del dado se mueve la posicion entre casillas
+    public void moverFichas(int i, int o, String color)// 
     {
-        int positionR = 0;
-        int positionG = 0;
-        int positionY = 0;
-        int positionB = 0;
         if(color.equalsIgnoreCase("rojo"))
         {
-            positionR += i;
-           square[positionR].setPiece(homeRed.getPiece(1)); // en la casilla se configura uuna nueva pieza, la de home, 
+            numDadoR += i;
+            numDadoG += o;
+            homeRed.getPiece(0).setPosition(position[numDadoR]);// se llama a la clase que tiene el arreglo de la pieza, se obtiene esa pieza y se le cambia la posicion, con el arreglo de posiciones
+            homeGreen.getPiece(0).setPosition(position[numDadoG]);
         }//fin if
-        else 
+        else
         {
-            if (color.equalsIgnoreCase("verde")) 
+            if(color.equalsIgnoreCase("amarillo"))
             {
-                 positionG += i;
-                square[positionG].setPiece(homeGreen.getPiece(1)); // en la casilla se configura uuna nueva pieza, la de home,
-                
-            }//fin if anidado 
-            else 
+                numDadoY += i;
+                numDadoB += o;
+                homeYellow.getPiece(0).setPosition(position[numDadoY]);
+                homeBlue.getPiece(0).setPosition(position[numDadoB]);
+            }//fin if anidado
+            else
             {
-                if(color.equalsIgnoreCase("amarillo"))
+                if(color.equalsIgnoreCase("verde")) 
                 {
-                    positionY += i;
-                    square[positionY].setPiece(homeYellow.getPiece(1)); // en la casilla se configura uuna nueva pieza, la de home,
-                    
-                } //fin fi anidado 2
-                else 
+                    numDadoG += i;
+                    numDadoY += o;
+                    homeGreen.getPiece(0).setPosition(position[numDadoG]);
+                    homeYellow.getPiece(0).setPosition(position[numDadoY]);
+                }//fin if anidado 2
+                else
                 {
-                    if(color.equalsIgnoreCase("azul")) 
+                    if(color.equalsIgnoreCase("azul"))
                     {
-                        positionB += i;
-                        square[positionB].setPiece(homeBlue.getPiece(1)); // en la casilla se configura uuna nueva pieza, la de home, 
+                        numDadoB += i;
+                        numDadoR += o;
+                        homeBlue.getPiece(0).setPosition(position[numDadoB]);
+                        homeRed.getPiece(0).setPosition(position[numDadoR]);
                     }//fin if anidado 3
                 }//fin else anidado 2
             }//fin else anidado
         }//fin else
-        
-        
-        
+    }//fin metodo
     
     
+    
+    
+    public void sacarFichas(String color) 
+    {
+        if(color.equalsIgnoreCase("rojo"))
+        {
+            homeRed.getPiece(0).setPosition(position[38]);
+        }//fin if
+        else
+        {
+            if(color.equalsIgnoreCase("amarillo"))
+            {
+                homeYellow.getPiece(0).setPosition(position[4]);
+            }//fin if anidado
+            else
+            {
+                if(color.equalsIgnoreCase("verde")) 
+                {
+                    homeGreen.getPiece(0).setPosition(position[55]);
+                }//fin if anidado 2
+                else
+                {
+                    if(color.equalsIgnoreCase("azul"))
+                    {
+                        homeBlue.getPiece(0).setPosition(position[21]);
+                    }//fin if anidado 3
+                }//fin else anidado 2
+            }//fin else anidado
+        }//fin else
     }//fin metodo
 }//fin clase
