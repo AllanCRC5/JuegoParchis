@@ -42,6 +42,8 @@ public class GameController implements ActionListener
     Board board;
     GUIGameOver gUIGameOver;
     ThreadTimer threadTimer;
+    AudioController audio;
+    
 
     //constructor sin parametros, donde se crearan las instancias de todos los GUI con botones
     public GameController()
@@ -58,6 +60,7 @@ public class GameController implements ActionListener
         this.panelButtons = gUIStartGame.getPanelButtons();
         this.panelData = gUIStartGame.getPanelData();
         this.threadTimer = new ThreadTimer(guiWin, gUIGameOver, playController.gUIPlay);
+        this.audio = new AudioController();// para el sonido del juego
         
         
         this.panelButtons.setListenerMenu(this);// se llama al metodo escrito en el JPanel de los botones, y se dice por parametros que este es la clase que tiene el ActionListener que va a escuchar que dicen los botones
@@ -133,6 +136,16 @@ public class GameController implements ActionListener
             case "Verde":
                 player.setColor("verde");
                 JOptionPane.showMessageDialog(null, "Su color fue seleccionado con éxito");
+                break;
+            case "Sonido": // para el sonido
+                if(audio.estaReproduciendo()) 
+                {
+                    audio.detener();
+                }//fin if
+                else
+                {
+                    audio.iniciarMusica("/audios/audio_reduced_option2.wav");
+                }//fin else
                 break;
         }//fin switch
     }//fin metodo actionPerformed

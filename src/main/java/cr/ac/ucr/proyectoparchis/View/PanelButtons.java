@@ -30,6 +30,7 @@ public class PanelButtons extends javax.swing.JPanel
         this.btnHistory.addActionListener(controller);
         this.btnInstructions.addActionListener(controller);
         this.btnPlay.addActionListener(controller);
+        this.btnSonido.addActionListener(controller);
     }//fin metodo setListener
     
     
@@ -45,6 +46,7 @@ public class PanelButtons extends javax.swing.JPanel
         btnInstructions = new javax.swing.JButton();
         btnCredits = new javax.swing.JButton();
         btnPlay = new javax.swing.JButton();
+        btnSonido = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -102,6 +104,18 @@ public class PanelButtons extends javax.swing.JPanel
             }
         });
         add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 100, 50));
+
+        btnSonido.setBackground(new java.awt.Color(153, 255, 255));
+        btnSonido.setForeground(new java.awt.Color(0, 0, 0));
+        btnSonido.setText("Sonido");
+        btnSonido.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSonidoActionPerformed(evt);
+            }
+        });
+        add(btnSonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 233, 90, 40));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 280));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,6 +134,11 @@ public class PanelButtons extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlayActionPerformed
 
+    private void btnSonidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSonidoActionPerformed
+    {//GEN-HEADEREND:event_btnSonidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSonidoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnColor;
@@ -127,6 +146,7 @@ public class PanelButtons extends javax.swing.JPanel
     private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnInstructions;
     private javax.swing.JButton btnPlay;
+    private javax.swing.JButton btnSonido;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
